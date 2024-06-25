@@ -36,28 +36,25 @@ export function Navbar() {
     },
   ]
 
-  const menuItemClassName = (href:string) => {
-  
-    return params === href
-      ? 'bg-[#dc4a2e] flex items-center justify-center gap-1 p-3 rounded-[30px] text-white font-normal'
-      : 'flex items-center justify-center gap-1 p-3 bg-black rounded-[30px] bg-white';
-  };
-
   return (
     <div className="relative w-full bg-white border-b-[1px]">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <div className="inline-flex items-center space-x-2 text-black">
-          <span className="font-bold">LOGO</span>
+          <span className="font-bold text-[#dc4a2e]">LOGO</span>
         </div>
-        <div className="hidden lg:block">
-          <ul className="inline-flex space-x-8 border-[1px] pr-5 p-1 pl-5 rounded-[30px] gap-7">
+        <div className="hidden lg:flex gap-3">
+          <div className="flex items-center bg-[#dc4a2e] justify-center gap-1 text-white p-3 rounded-[30px]">
+          <Briefcase size={20} />
+          <p className='text-sm'>Jobs</p>
+          </div>
+          <ul className="inline-flex space-x-8 border-[1px] pr-5 p-1 pl-5 rounded-[30px] gap-7 shadow-[inset_0_1px_4px_rgba(0,0,0,0.4)]">
             {menuItems.map((item) => (
               <li key={item.name}>
                 <a
                   href={item.href}
                   className="text-sm font-semibold text-gray-800 hover:text-gray-900"
                 >
-                  <div className={menuItemClassName(item.href)}>
+                  <div className="flex items-center justify-center gap-1 p-3 rounded-[30px] bg-white">
                     {item.icon}
                     {item.name}
                   </div>
